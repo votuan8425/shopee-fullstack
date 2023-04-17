@@ -12,7 +12,7 @@
 
 .form {
     background-color: #ffffff;
-    padding: 40px;
+    padding: 30px 40px 10px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -22,7 +22,7 @@
 }
 
 .form .ant-form-item-control-input {
-    height: 50px;
+    height: 45px;
     width: 300px;
 }
 
@@ -45,4 +45,17 @@
 
 .ant-spin svg {
     margin-bottom: 5px;
+}
+
+.ant-form-item-control{
+    margin-left: 0 !important;
+}
+
+.ant-form-item-control-input-content{
+    display: flex;
+    justify-content: center;
+}
+
+.ant-menu{
+    align-items: center;
 }

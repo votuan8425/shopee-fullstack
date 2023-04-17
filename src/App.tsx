@@ -6,7 +6,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Home from "./pages/home";
 import { Layout } from 'antd';
-import Register from "./pages/regiester";
+import Register from "./pages/register";
 
 const LayoutApp = () => {
   return (
