@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f5f5f5;
+}
+
+.form {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.form .ant-form-item {
+    margin-bottom: 16px;
+}
+
+.form .ant-form-item-control-input {
+    height: 50px;
+    width: 300px;
+}
+
+
+
+.form .ant-btn {
+    margin-top: 15px;
+    background-color: #1890ff;
+    color: #ffffff;
+    font-weight: 500;
+    border: 0;
+    width: 75px !important;
+}
+
+.form .ant-btn:hover,
+.form .ant-btn:focus {
+    background-color: #40a9ff;
+    color: #ffffff;
+}
+
+.ant-spin svg {
+    margin-bottom: 5px;
+}

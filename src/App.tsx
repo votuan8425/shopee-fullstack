@@ -1,71 +1,51 @@
-import { useState } from 'react';
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import ContactPage from "./pages/contact";
+import Login from "./pages/login";
 
-import { useAppSelector, useAppDispatch } from '../src/redux/hooks';
-import {
-  decrement,
-  increment,
-  incrementByAmount,
-  incrementAsync,
-  incrementIfOdd,
-  selectCount,
-} from './redux/counter/counterSlice';
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Home from "./pages/home";
+import { Layout } from 'antd';
+import Register from "./pages/regiester";
 
-import './counter.css';
+const LayoutApp = () => {
+  return (
+    <Layout>
+      <Header />
+      <Outlet />
+      <Footer />
+    </Layout>
+  );
+};
 
 function App() {
-  const count = useAppSelector(selectCount);
-  const dispatch = useAppDispatch();
-  const [incrementAmount, setIncrementAmount] = useState('2');
-
-  const incrementValue = Number(incrementAmount) || 0;
-
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <LayoutApp />,
+      errorElement: <div>404 Not Found</div>,
+      children: [
+        { index: true, element: <Home /> },
+        {
+          path: "contact",
+          element: <ContactPage />,
+        },
+      ],
+    },
+    {
+      path: "/login",
+      element: <Login />
+    },
+    {
+      path: "/register",
+      element: <Register />
+    },
+  ]);
   return (
-    <div>
-      <div className='row'>
-        <button
-          className='button'
-          aria-label="Decrement value"
-          onClick={() => dispatch(decrement())}
-        >
-          -
-        </button>
-        <span className='value'>{count}</span>
-        <button
-          className='button'
-          aria-label="Increment value"
-          onClick={() => dispatch(increment())}
-        >
-          +
-        </button>
-      </div>
-      <div className='row'>
-        <input
-          className='textbox'
-          aria-label="Set increment amount"
-          value={incrementAmount}
-          onChange={(e) => setIncrementAmount(e.target.value)}
-        />
-        <button
-          className='button'
-          onClick={() => dispatch(incrementByAmount(incrementValue))}
-        >
-          Add Amount
-        </button>
-        <button
-          className='asyncButton'
-          onClick={() => dispatch(incrementAsync(incrementValue))}
-        >
-          Add Async
-        </button>
-        <button
-          className='button'
-          onClick={() => dispatch(incrementIfOdd(incrementValue))}
-        >
-          Add If Odd
-        </button>
-      </div>
-    </div>
+    <>
+      <RouterProvider router={router} />
+    </>
   );
 }
 
-export default App
+export default App;
